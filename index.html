@@ -18,13 +18,17 @@
             Else
         </div>
 
-        <input type="text" v-model="name">
+        <input type="text" v-model="name" v-on:copy="copyAlert">
 
         <span v-bind:title="name">{{ name }}</span>
 
         <div v-for="item in numbers">{{ item }}</div>
 
         <div v-for="(item, key) in users">{{ item.name }} - {{ item.email }}</div>
+
+        <button v-on:click="toggleFlag">
+            Click
+        </button>
     </div>
 
     <script>
@@ -41,6 +45,16 @@
                     ],
 
                     flag: true
+                }
+            },
+
+            methods: {
+                toggleFlag() {
+                    this.flag = !this.flag
+                },
+
+                copyAlert() {
+                    window.alert('Copied!')
                 }
             },
 
