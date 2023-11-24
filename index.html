@@ -17,6 +17,10 @@
         <input type="text" v-model="name">
 
         <span v-bind:title="name">{{ name }}</span>
+
+        <div v-for="item in numbers">{{ item }}</div>
+
+        <div v-for="(item, key) in users">{{ item.name }} - {{ item.email }}</div>
     </div>
 
     <script>
@@ -24,6 +28,13 @@
             data() {
                 return {
                     name: 'Hello world',
+
+                    numbers: [1, 2, 3, 4, 5],
+
+                    users: [
+                        { name: 'Rafael', email: 'rafael.indriago93@gmail.com' },
+                        { name: 'Andres', email: 'andres.moya93@gmail.com' }
+                    ]
                 }
             },
 
