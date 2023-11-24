@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Vue 3</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="name">
+
+        <div>
+            {{ name }}
+        </div>
+    </div>
+
+    <script>
+        const Hello = {
+            data() {
+                return {
+                    name: ''
+                }
+            },
+
+            watch: {
+                name(value, oldValue) {
+                    console.log('Name was changed')
+                    console.log(value, oldValue)
+                }
+            }
+        }
+
+        Vue.createApp(Hello)
+            .mount('#app')
+    </script>
+</body>
+
+</html>
