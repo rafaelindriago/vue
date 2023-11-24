@@ -7,6 +7,12 @@
 
     <title>Vue 3</title>
 
+    <style>
+        .feedback {
+            color: red;
+        }
+    </style>
+
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
@@ -17,7 +23,7 @@
                 <input type="text" v-model="form.title">
             </div>
             <div v-if="errors.title.length > 0">
-                <div style="color: red;" v-for="error in errors.title">{{ error }}</div>
+                <div class="feedback" v-for="error in errors.title">{{ error }}</div>
             </div>
 
             <div>
