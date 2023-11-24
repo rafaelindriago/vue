@@ -12,7 +12,11 @@
 
 <body>
     <div id="app">
-        <div v-text="name"></div>
+        <div v-text="name" v-if="flag"></div>
+
+        <div v-else="flag">
+            Else
+        </div>
 
         <input type="text" v-model="name">
 
@@ -34,7 +38,9 @@
                     users: [
                         { name: 'Rafael', email: 'rafael.indriago93@gmail.com' },
                         { name: 'Andres', email: 'andres.moya93@gmail.com' }
-                    ]
+                    ],
+
+                    flag: true
                 }
             },
 
