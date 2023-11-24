@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Vue 3</title>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <form v-on:submit.prevent="submit">
+            <div>
+                <input type="text" v-model="form.title">
+            </div>
+            <div v-if="errors.title.length > 0">
+                <div style="color: red;" v-for="error in errors.title">{{ error }}</div>
+            </div>
+
+            <div>
+                <textarea v-model="form.content"></textarea>
+            </div>
+
+            <div>
+                <button type="submit">
+                    Send
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const Hello = {
+            data() {
+                return {
+                    form: {
+                        title: '',
+                        content: '',
+                    },
+
+                    errors: {
+                        title: [],
+                        content: []
+                    }
+                }
+            },
+
+            methods: {
+                submit() {
+                    if (this.form.title.length == 0) {
+                        this.errors.title = ['The title field is required']
+                        return
+                    }
+
+                    if (this.form.content.length == 0) {
+                        this.errors.content = ['The content field is required']
+                        return
+                    }
+
+                    window.alert(
+                        `title: ${this.form.title}\n
+                        content: ${this.form.content}\n`
+                    )
+                }
+            },
+        }
+
+        Vue.createApp(Hello)
+            .mount('#app')
+    </script>
+</body>
+
+</html>
