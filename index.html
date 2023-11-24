@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    
+
     <title>Vue 3</title>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -23,6 +23,22 @@
                 return {
                     name: 'Hello world',
                 }
+            },
+
+            beforeCreate() {
+                console.log('Before create')
+            },
+
+            created() {
+                console.log('Created')
+            },
+
+            beforeUpdate() {
+                console.log('Before update')
+            },
+
+            updated() {
+                console.log('Updated')
             }
         }
 
